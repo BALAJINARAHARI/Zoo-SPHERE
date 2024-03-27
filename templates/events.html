@@ -76,43 +76,106 @@
             padding: 20px;
         }
 
-        main img {
-            width: 100%;
-            max-width: 800px;
-            display: block;
-            margin: 0 auto; /* Center the image */
+        .event {
+            background-size: cover;
+            background-position: center;
+            color: white;
+            margin-bottom: 20px;
+            padding: 20px;
         }
 
-        @media only screen and (max-width: 600px) {
-            nav h1 {
-                font-size: 20px;
-            }
+        .event-info {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
         }
+
+        #visit {
+            background-image: url('visit.jpg');
+        }
+
+        #feeding {
+            background-image: url('feeding.jpg');
+        }
+
+        #safari {
+            background-image: url('safari.jpg');
+        }
+
+        #aquarium {
+            background-image: url('aquarium.jpg');
+        }
+
+        #birdshow {
+            background-image: url('bird.jpeg');
+        }
+
+        .diamond {
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+
     </style>
 </head>
 <body>
-    <nav>
-        <h1>Zoo Sphere</h1>
-        <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="events.html">Events</a></li>
-            <li><a href="sales.html">Sales</a></li>
-            <li><a href="settings.html">Settings</a></li>
-            <li class="dropdown">
-                <a href="#">Register/Login</a>
-                <div class="dropdown-content">
-                    <a href="register.html">Register</a>
-                    <a href="sales.html">Login</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
-    <header>
-        <h1>Events at Zoo Sphere</h1>
-    </header>
-    <main>
-        <img src="events_image.jpg" alt="Events Image">
-        <!-- events page content goes here -->
-    </main>
+<nav>
+    <h1>Zoo Sphere</h1>
+    <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="sales.html">Sales</a></li>
+        <li><a href="settings.html">Settings</a></li>
+        <li class="dropdown">
+            <a href="#">Register/Login</a>
+            <div class="dropdown-content">
+                <a href="register.html">Register</a>
+                <a href="sales.html">Login</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+<header>
+    <h1>Events at Zoo Sphere</h1>
+</header>
+<main>
+    <div class="event" id="visit">
+        <div class="event-info">
+            <h2>Zoo Visit</h2>
+            <p>Date: April 1, 2024</p>
+            <p>Price: $25.99</p>
+            <p>Description: Enjoy a day exploring our diverse collection of animals from around the world!</p>
+        </div>
+    </div>
+    <div class="event" id="feeding">
+        <div class="event-info">
+            <h2>Animal Feeding</h2>
+            <p>Date: April 5, 2024</p>
+            <p>Price: $39.99</p>
+            <p>Description: Get up close and personal with our animals by participating in their feeding time!</p>
+        </div>
+    </div>
+    <div class="event" id="safari">
+        <div class="event-info">
+            <h2>Safari Adventure</h2>
+            <p>Date: April 10, 2024</p>
+            <p>Price: $59.99</p>
+            <p>Description: Embark on an exciting safari journey through our simulated natural habitats!</p>
+        </div>
+    </div>
+    <div class="event" id="aquarium">
+        <div class="event-info">
+            <h2>Underwater World</h2>
+            <p>Date: April 15, 2024</p>
+            <p>Price: $49.99</p>
+            <p>Description: Dive into the mesmerizing world of marine life in our state-of-the-art aquarium!</p>
+        </div>
+    </div>
+    <div class="event" id="birdshow">
+        <div class="event-info">
+            <h2>Birds Show</h2>
+            <p>Date: April 20, 2024</p>
+            <p>Price: $29.99</p>
+            <p>Description: Join us for an enchanting display of avian wonders!</p>
+        </div>
+    </div>
+</main>
 </body>
 </html>
