@@ -144,34 +144,15 @@
         <h1>Welcome to Zoo Sphere</h1>
     </header>
     <main>
-        <div class="slideshow-container">
-            <img class="slides" src="home_image 1.jpg" alt="Slideshow Image 1">
-            <img class="slides" src="home_image 2.jpeg" alt="Slideshow Image 2">
-            <img class="slides" src="home_image 3.jpg" alt="Slideshow Image 3">
-            <img class="slides" src="home_image 4.jpg" alt="Slideshow Image 4">
-            <img class="slides" src="home_image 5.jpg" alt="Slideshow Image 5">
-            <button class="prev" onclick="plusSlides(-1)">❮</button>
-            <button class="next" onclick="plusSlides(1)">❯</button>
+
+        <div class="buttons">
+            <button onclick="location.href='/sales'">Sales</button>
+            <button onclick="location.href='/events'">Events</button>
+            <button onclick="location.href='#'">Settings</button>
+            <button onclick="location.href='#'">Exit</button>
+
         </div>
     </main>
-    <script>
-        var slideIndex = 1;
-
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-
-        function showSlides(n) {
-            var i;
-            var slides = document.getElementsByClassName("slides");
-            if (n > slides.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = slides.length}
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slides[slideIndex-1].style.display = "block";
-        }
-        showSlides(slideIndex);
-    </script>
+   
 </body>
 </html>
