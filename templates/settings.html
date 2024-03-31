@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zoo Sphere - Home</title>
+    <title>Zoo Sphere - Settings</title>
     <style>
         body {
             margin: 0;
@@ -74,52 +74,43 @@
 
         main {
             padding: 20px;
+            text-align: center;
         }
 
-        .slideshow-container {
-            position: relative;
-            width: 100%;
-            height: 100vh; /* Full viewport height */
-            overflow: hidden;
+        .settings-form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        .slides {
-            width: 100%;
-            height: auto;
-            max-height: 100vh;
-            object-fit: contain; /* Fit images within container */
-            display: none;
+        .settings-form h2 {
+            margin-top: 0;
         }
 
-        .prev, .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            padding: 16px;
-            margin-top: -22px;
+        .settings-form input[type="text"],
+        .settings-form input[type="email"],
+        .settings-form input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .settings-form button {
+            background-color: #4CAF50;
             color: white;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
-            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
         }
 
-        .next {
-            right: 0;
-            border-radius: 3px 0 0 3px;
-        }
-
-        .prev:hover, .next:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        @media only screen and (max-width: 600px) {
-            nav h1 {
-                font-size: 20px;
-            }
+        .settings-form button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
@@ -130,7 +121,7 @@
             <li><a href="home.html">Home</a></li>
             <li><a href="events.html">Events</a></li>
             <li><a href="sales.html">Sales</a></li>
-            <li><a href="settings.html">Settings</a></li>
+            <li><a href="#">Settings</a></li>
             <li class="dropdown">
                 <a href="#">Register/Login</a>
                 <div class="dropdown-content">
@@ -141,18 +132,16 @@
         </ul>
     </nav>
     <header>
-        <h1>Welcome to Zoo Sphere</h1>
+        <h1>Settings</h1>
     </header>
     <main>
-
-        <div class="buttons">
-            <button onclick="location.href='/sales'">Sales</button>
-            <button onclick="location.href='/events'">Events</button>
-            <button onclick="location.href='#'">Settings</button>
-            <button onclick="location.href='#'">Exit</button>
-
-        </div>
+        <form class="settings-form">
+            <h2>Update Your Information</h2>
+            <input type="text" placeholder="Name">
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <button>Update</button>
+        </form>
     </main>
-   
 </body>
 </html>
