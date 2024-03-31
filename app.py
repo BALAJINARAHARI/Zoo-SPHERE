@@ -3,8 +3,9 @@ from flask_sqlalchemy import SQLAlchemy
 import bcrypt
 from flask import flash, redirect, render_template, request, url_for
 
-
 app = Flask(__name__)
+
+
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 db = SQLAlchemy(app)
@@ -24,8 +25,21 @@ class User(db.Model):
     def check_password(self,password):
         return bcrypt.checkpw(password.encode('utf-8'),self.password.encode('utf-8'))
 
+class Event(db.Model):
+  id = db.Column(db.Integer, primary_key=True)
+  name = db.Column(db.String(100), nullable=False)
+  date = db.Column(db.Date, nullable=False)
+  location = db.Column(db.String(100), nullable=False)
+
+  def __init__(self, name, date, location):
+      self.name = name
+      self.date = date
+      self.location = location
+
 with app.app_context():
     db.create_all()
+
+
 
 
 
@@ -67,11 +81,48 @@ def login():
             return render_template('login.html',error='Invalid user')
 
     return render_template('login.html')
+  
+
+@app.route('/add_events', methods=['GET', 'POST'])
+def add_event():
+    if request.method == 'POST':
+        # Retrieve data from the form
+        event_name = request.form['event_name']
+        event_date = request.form['event_date']
+        event_location = request.form['event_location']
+
+        try:
+            # Create a new Event object and add it to the database
+            new_event = Event(name=event_name, date=event_date, location=event_location)
+            db.session.add(new_event)
+            db.session.commit()
+            print("Adding event:", event_name, event_date, event_location)
 
 
+          
+            # Redirect to the events page after adding the event
+            return redirect(url_for('events'))
+        except Exception as e:
+            # Handle any exceptions that occur during database operation
+            return f"An error occurred: {str(e)}"
+    else:
+        # If it's a GET request, render the add_event_form.html template
+        return render_template('add_events.html')
 
+@app.route('/manage_events',methods=['GET','POST'])
+def manage_events():
+  try:
+      # Fetch all events from the database
+      events = Event.query.all()
 
-    
+      # Check if there are any events
+      if events:
+          return render_template('manage_events.html', events=events)
+      else:
+          return "No events found."  # Display a message if no events are found
+  except Exception as e:
+      return f"An error occurred: {str(e)}" 
+
 
 
 @app.route('/logout')
@@ -91,6 +142,9 @@ def sales():
 @app.route("/home")
 def home():
   return render_template("home.html")
+@app.route("/events")
+def events():
+  return render_template("events.html")
 
 
 if __name__ == "__main__":
